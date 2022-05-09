@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <title>大绿书</title>
+  <link rel="stylesheet" href="//at.alicdn.com/t/font_3333826_qazalw6ayvg.css">
+  <link rel="stylesheet" href="./css/home.css">
+  <link rel="stylesheet" href="./css/login.css">
+  <link rel="stylesheet" href="./css/adding.css">
+  <link rel="stylesheet" href="./css/app.css">
+  <link rel="stylesheet" href="./css/search.css">
+  <link rel="stylesheet" href="./css/changeFace.css">
+  <link rel="stylesheet" href="./css/lAc.css">
+  <link rel="stylesheet" href="./css/edit.css">
+  <link rel="stylesheet" href="./css/message.css">
+  <link rel="stylesheet" href="./css/userHome.css">
+  <link rel="stylesheet" href="./css/detail.css">
+  <link rel="stylesheet" href="./css/follows.css">
+  <link rel="stylesheet" href="./css/loading.css">
+  <link rel="stylesheet" href="./css/send.css">
+  <script type="module" defer src="./js/lAc.js"></script>
+  <script type="module" defer src="./js/fans.js"></script>
+  <script type="module" defer src="./js/follows.js"></script>
+  <script type="module" defer src="./js/letter.js"></script>
+  <script type="module" defer src="./js/userHome.js"></script>
+  <script type="module" defer src="./js/login.js"></script>
+  <script type="module" defer src="./js/changeFace.js"></script>
+  <script type="module" defer src="./js/message.js"></script>
+  <script type="module" defer src="./js/edit.js"></script>
+  <script type="module" defer src="./js/comMe.js"></script>
+  <script type="module" defer src="./js/send.js"></script>
+  <script type="module" defer src="./js/detail.js"></script>
+  <script type="module" defer src="./js/search.js"></script>
+  <script type="module" defer src="./js/ws.js"></script>
+  <script type="module" defer src="./js/adding.js"></script>
+  <script type="module" defer src="./js/home.js"></script>
+  <script type="module" defer src="./js/loading.js"></script>
+  <script type="module" defer src="./js/register.js"></script>
+  <link href="https://cdn.bootcdn.net/ajax/libs/nprogress/0.2.0/nprogress.min.css" rel="stylesheet">
+  <script src="https://cdn.bootcdn.net/ajax/libs/socket.io/4.4.1/socket.io.js"></script>
+  <script src="https://cdn.bootcdn.net/ajax/libs/nprogress/0.2.0/nprogress.min.js"></script>
+</head>
+
+<body>
+  <script type="module" src="./js/app.js"></script>
+  <div class="loading" style="display: none;">
+    <div class="loading_text">
+      <span>加</span>
+      <span>载</span>
+      <span>中</span>
+      <span>.</span>
+      <span>.</span>
+      <span>.</span>
+    </div>
+  </div>
+  <div id="app">
+    <!-- 登录界面 -->
+    <div class="login" style="display: none;">
+      <!-- 外围 -->
+      <div class="login_wrap">
+        <h1>大绿书</h1>
+        <!-- 密码登录 -->
+        <div class="login_mima">
+          <form>
+            <!-- 用户名 -->
+            <input type="text" class="login_input" placeholder="用户名" />
+            <input type="password" class="login_input login_input_password" placeholder="密码" maxlength="20" />
+          </form>
+        </div>
+        <div class="login_warn" style="display: none;"></div>
+        <!-- 登录按钮 -->
+        <button class="login_submit">登录</button>
+        <!-- 注册 -->
+        <div class="registerBtn">注册</div>
+      </div>
+    </div>
+
+    <!-- 注册界面 -->
+    <div class="register" style="display: none;">
+      <!-- 外围 -->
+      <div class="login_wrap">
+        <h1>注册</h1>
+        <!-- 密码登录 -->
+        <div class="login_mima">
+          <form>
+            <!-- 用户名 -->
+            <input type="text" class="login_input register_input" placeholder="用户名" />
+            <input type="password" class="login_input login_input_password register_input_password" placeholder="密码"
+              maxlength="20" />
+            <input type="password" class="login_input login_input_password register_input_password" placeholder="确认密码"
+              maxlength="20" />
+          </form>
+        </div>
+        <div class="login_warn register_warn" style="display: none;"></div>
+        <!-- 注册按钮 -->
+        <button class="login_submit register_submit">加入我们</button>
+        <!-- 返回登录 -->
+        <div class="registerBtn loginBtn">返回登录</div>
+      </div>
+    </div>
+
+    <!-- 上传头像 -->
+    <div class="changeFace" style="display: none;">
+      <div class="adding_header">
+        <i class='iconfont icon-fanhui' id="face_back"></i>
+      </div>
+      <img class="changeFace_face">
+      <div class="changeFbtn">
+        <label for="faceFile">
+          <div class="upFace">上传你的头像</div>
+          <input type="file" id="faceFile" style="display: none;">
+        </label>
+        <div class="upFsure">确定</div>
+      </div>
+    </div>
+    <!-- 首页 -->
+    <div class="home" style="display: none;">
+      <div class="home_header_wrap">
+        <!-- 头部 -->
+        <div class="home_header">
+          <!-- 加号 -->
+          <i class='iconfont icon-jiahao' id="addArt"></i>
+          <div>首页</div>
+          <!-- 搜索 -->
+          <i class='iconfont icon-sousuo' id="turnSearch"></i>
+        </div>
+        <!-- 导航标签 -->
+        <div class="navTag" id="homeNav">
+          <div id="recommend" class="active">推荐</div>
+          <div id="travel">旅游</div>
+          <div id="food">美食</div>
+          <div id="fashion">时尚</div>
+          <div id="caizhuang">彩妆</div>
+          <div id="gaoxiao">高效</div>
+          <div id="hufu">护肤</div>
+        </div>
+      </div>
+      <!-- 展示内容 -->
+      <div class="showOut home_show">
+        <div class="show_column home_show_column"></div>
+        <div class="show_column home_show_column"></div>
+      </div>
+      <div class="noMore" id="homeNoMore">没有更多了</div>
+      <!-- 底部导航 -->
+      <div class="navFoot">
+        <div class="navFoot_item active" id="home_home">
+          <i class='iconfont icon-home-g'></i>
+          <div class="navFoot_text">首页</div>
+        </div>
+        <div class="navFoot_item" id="home_msg">
+          <i class='iconfont icon-31xiaoxi'></i>
+          <div class="navFoot_text">消息</div>
+        </div>
+        <div class="navFoot_item" id="home_own">
+          <i class='iconfont icon-geren'></i>
+          <div class="navFoot_text">个人</div>
+        </div>
+      </div>
+    </div>
+    <!-- 添加笔记 -->
+    <div class="adding" style="display: none;">
+      <!-- tag弹窗 -->
+      <div class="pop" id="tagPop" style="display: none;">
+        <div class="popIn">
+          <input type="text" class="tagText" id="tagText" placeholder="请输入要添加的Tag" maxlength="10">
+          <div class="addTag_btn">
+            <div class="addTag_sure" id="tagSure">确定</div>
+            <div class="addTag_no" id="tagNo">取消</div>
+          </div>
+        </div>
+      </div>
+      <!-- @弹窗 -->
+      <div class="pop" id="aitePop" style="display: none;">
+        <div class="popIn">
+          <input type="text" class="tagText" id="aiteText" placeholder="请输入要@的TA" maxlength="10">
+          <div class="addTag_btn">
+            <div class="addTag_sure" id="aite_sure">确定</div>
+            <div class="addTag_no" id="aite_no">取消</div>
+          </div>
+        </div>
+      </div>
+      <!-- 返回主页 -->
+      <div class="adding_header">
+        <i class='iconfont icon-fanhui' id="adding_back"></i>
+      </div>
+      <!-- 添加图片 -->
+      <div class="add_photo">
+        <label for="fileImg" class="add_btn">
+          <i class='iconfont icon-jiahao'></i>
+          <input type="file" id="fileImg" style="display: none;">
+        </label>
+      </div>
+      <!-- 添加标题 -->
+      <input type="text" class="add_title" placeholder="填写标题会有更多赞哦~" maxlength="20" />
+      <!-- 添加正文 -->
+      <textarea class="add_content" placeholder="添加正文"></textarea>
+      <!-- 添加标签 -->
+      <div class="add_tag">
+        <div class="add_tag_item" id="addTopic"># 话题</div>
+        <div class="add_tag_item" id="aite">@ 用户</div>
+      </div>
+      <!-- 标签 -->
+      <div class="readyTag"></div>
+      <!-- 发布按钮 -->
+      <div class="sub_btn">发布笔记</div>
+    </div>
+
+    <!-- 搜索界面 -->
+    <div class="search" style="display: none;">
+      <!-- 顶部 -->
+      <div class="search_header_wrap">
+        <div class="search_header">
+          <i class='iconfont icon-fanhui' id="search_back"></i>
+          <!-- 输入框 -->
+          <div class="search_input_wrap">
+            <i class='iconfont icon-sousuo'></i>
+            <input type="text" class="search_input" placeholder="请输入内容">
+          </div>
+          <div class="search_btn">搜索</div>
+        </div>
+        <!-- 文章或用户 -->
+        <div class="navTag" id="searchNav">
+          <div class="searchNavItem active" id="search_wenzhang">文章</div>
+          <div class="searchNavItem" id="search_yonghu">用户</div>
+        </div>
+      </div>
+      <!-- 文章 -->
+      <div class="showOut" id="search_art">
+        <div class="show_column search_show_column"></div>
+        <div class="show_column search_show_column"></div>
+      </div>
+      <!-- 用户 -->
+      <div id="search_users" style="display: none;"></div>
+      <div id="searchNone" style="display: none;">抱歉，什么都没找到哦</div>
+    </div>
+
+    <!-- 详情页面 -->
+    <div class="detail" style="display: none;">
+      <!-- 顶部 -->
+      <div class="detail_header">
+        <!-- 左侧（箭头+作者信息） -->
+        <div class="detail_header_left">
+          <i class='iconfont icon-fanhui' id="detail_back"></i>
+          <div class="detail_author">
+            <img class="datail_authorFace">
+            <div class="detail_name"></div>
+          </div>
+        </div>
+        <!-- 右侧（关注+分享） -->
+        <div class="detail_header_right">
+          <div class="detail_follow"></div>
+          <i class='iconfont icon-fenxiang'></i>
+        </div>
+      </div>
+      <!-- 图片展示 -->
+      <div class="rotation_view">
+        <div class="rotation_swiper"></div>
+      </div>
+      <!-- 轮播图进度条 -->
+      <div class="rotation_btnList"></div>
+      <!-- 标题 -->
+      <div class="detail_title"></div>
+      <!-- 正文 -->
+      <div class="detail_content"></div>
+      <!-- 标签 -->
+      <div class="detail_tagList"></div>
+      <!-- 时间和喜欢 -->
+      <div class="timeAlike">
+        <div class="detail_time"></div>
+        <!-- <div class="detail_like">不喜欢</div> -->
+      </div>
+      <!-- 评论 -->
+      <div class="detail_comments">
+        <div class="sumCommenys">共<span class="detail_sum"></span>条评论</div>
+        <!-- 回复列表 -->
+        <ul class="commentsList"></ul>
+      </div>
+      <!-- 粘性底部 -->
+      <div class="detail_write">
+        <input class="detail_input" type="text" placeholder="说点什么">
+        <div class="detail_input_sure" style="display: none;">取消</div>
+        <div class="detail_write_right">
+          <i class='iconfont icon-weishoucang' style="transition: 0.3s;" id="detail_aix"></i>
+          <div id="detail_aix_num"></div>
+          <i class='iconfont icon-weishoucang1' style="transition: 0.3s;" id="detail_col"></i>
+          <div id="detail_col_num"></div>
+          <i class='iconfont icon-31pinglun' id="detail_com"></i>
+          <div id="detail_com_num"></div>
+        </div>
+      </div>
+    </div>
+    <!-- 用户信息页面 -->
+    <div class="userHome" style="display: none;">
+      <div class="adding_header userHome_header">
+        <i class='iconfont icon-tuichu' id="userHome_logout"></i>
+        <i class='iconfont icon-fanhui' id="userHome_back"></i>
+      </div>
+      <!-- 头像和昵称 -->
+      <div class="faceAname">
+        <img class="userHome_face">
+        <div class="userHome_name"></div>
+      </div>
+      <!-- 关注、粉丝点赞与收藏 -->
+      <div class="userHome_data">
+        <div class="userHome_data_tiem " id="userHome_follows">
+          <div style="font-size: 20px;" id="userHome_follows_num"></div>
+          <div style="font-size: small;">关注</div>
+        </div>
+        <div class="userHome_data_tiem " id="userHome_fans">
+          <div style="font-size: 20px;" id="userHome_fans_num"></div>
+          <div style="font-size: small;">粉丝</div>
+        </div>
+        <div class="userHome_data_tiem " id="userHome_loveAcoll">
+          <div style="font-size: 20px;" id="userHome_loveAcoll_num"></div>
+          <div style="font-size: small;">点赞和收藏</div>
+        </div>
+        <!-- 发消息或编辑信息 -->
+        <div id="userHome_sendIfo">发消息</div>
+      </div>
+      <!-- 展示导航 -->
+      <div class="userHome_nav">
+        <div class="userHome_nav_btn userHome_active" id="userOwn">笔记</div>
+        <div class="userHome_nav_btn" id="userColl">收藏</div>
+        <div class="userHome_nav_btn" id="userLike">赞过</div>
+      </div>
+      <!-- 展示文章 -->
+      <div class="showOut" id="userHome_art">
+        <div class="show_column userHomeOwn_show_column"></div>
+        <div class="show_column userHomeOwn_show_column"></div>
+      </div>
+      <div class="noMore">没有更多了</div>
+      <!-- 底部导航 -->
+      <div class="navFoot" id="userHome_navFoot">
+        <div class="navFoot_item" id="userHome_home">
+          <i class='iconfont icon-home-g'></i>
+          <div class="navFoot_text">首页</div>
+        </div>
+        <div class="navFoot_item" id="userHome_msg">
+          <i class='iconfont icon-31xiaoxi'></i>
+          <div class="navFoot_text">消息</div>
+        </div>
+        <div class="navFoot_item active" id="userHome_own">
+          <i class='iconfont icon-geren'></i>
+          <div class="navFoot_text">个人</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 关注的人 -->
+    <div class="follows" style="display: none;">
+      <div class="adding_header follows_header">
+        <i class='iconfont icon-fanhui' id="follows_back"></i>
+        <div class="follows_title">关注的人</div>
+      </div>
+      <div id="follows_users"></div>
+    </div>
+
+    <!-- 粉丝 -->
+    <div class="fans" style="display: none;">
+      <div class="adding_header follows_header">
+        <i class='iconfont icon-fanhui' id="fans_back"></i>
+        <div class="follows_title">粉丝</div>
+      </div>
+      <div id="fans_users"></div>
+    </div>
+
+    <!-- 点赞和收藏页面 -->
+    <div class="likeAColl" style="display: none;">
+      <div class="lAcTop">
+        <div class="adding_header follows_header lAc_header">
+          <i class='iconfont icon-fanhui' id="lAc_back"></i>
+          <div class="follows_title">获赞与收藏</div>
+        </div>
+        <!-- 获赞或收藏 -->
+        <div class="navTag lAcNav">
+          <div class="searchNavItem lAcNavItem active" id="zan">获赞</div>
+          <div class="searchNavItem lAcNavItem" id="shou">收藏</div>
+        </div>
+      </div>
+      <!-- 获赞 -->
+      <div class="lAcShow" id="lAc_like"></div>
+      <!-- 收藏 -->
+      <div class="lAcShow" id="lAc_star" style="display: none;"></div>
+    </div>
+
+    <!-- 编辑个人资料 -->
+    <div class="edit" style="display: none;">
+      <!-- 弹窗 -->
+      <div class="edit_pop" style="display: none;">
+        <div class="edit_popIn">
+          <div id="editing"></div>
+          <!-- 修改框 -->
+          <div class="edit_input_wrap">
+            <input class="edit_input" style="display: none;">
+            <div class="sel_wrap" style="display: none;" id="sel_shengri">
+              <select size="3" class="edit_sel" id="year">
+                <script>
+                  let yewr = document.querySelector("#year");
+                  let Yfragment = document.createDocumentFragment();
+                  for (let i = 1990; i <= 2022; i++) {
+                    let child = document.createElement("option");
+                    child.value = i;
+                    child.innerText = i;
+                    Yfragment.appendChild(child);
+                  }
+                  yewr.appendChild(Yfragment)
+                </script>
+              </select>
+              年
+              <select size="3" class="edit_sel" id="month">
+                <script>
+                  let month = document.querySelector("#month");
+                  let Mfragment = document.createDocumentFragment();
+                  for (let i = 1; i <= 12; i++) {
+                    let child = document.createElement("option");
+                    child.value = i;
+                    child.innerText = i;
+                    Mfragment.appendChild(child);
+                  }
+                  month.appendChild(Mfragment)
+                </script>
+              </select>
+              月
+              <select size="3" class="edit_sel" id="day">
+                <script>
+                  let day = document.querySelector("#day");
+                  let Dfragment = document.createDocumentFragment();
+                  for (let i = 1; i <= 31; i++) {
+                    let child = document.createElement("option");
+                    child.value = i;
+                    child.innerText = i;
+                    Dfragment.appendChild(child);
+                  }
+                  day.appendChild(Dfragment)
+                </script>
+              </select>
+              日
+            </div>
+            <div class="sel_wrap" style="display: none;" id="sel_xingbie">
+              <select class="edit_sel" id="selItem_xingbie">
+                <option value="1">男</option>
+                <option value="0">女</option>
+              </select>
+            </div>
+            <label for="editImg" class="edit_photo_btn" style="display: none;" id="background">
+              <i class='iconfont icon-jiahao'></i>
+              <input type="file" id="editImg" style="display: none;">
+            </label>
+            <img class="editImgSure" style="display: none;">
+          </div>
+          <!-- 确认 -->
+          <div class="edit_sure">
+            <div id="edit_no">取消</div>
+            <div id="edit_yes">确定</div>
+          </div>
+        </div>
+      </div>
+      <div class="edit_header">
+        <i class='iconfont icon-fanhui' id="edit_back"></i>
+        <div class="edit_title">编辑资料</div>
+      </div>
+      <img class="edit_img">
+      <!-- 信息列表 -->
+      <div class="edit_list">
+        <div class="edit_item" id="edit_mingzi">
+          <div class="eidt_const">名字</div>
+          <div class="edit_text">
+            <div id="mingzi"></div>
+            <i class='iconfont icon-jinrujiantou'></i>
+          </div>
+        </div>
+        <div class="edit_item" id="edit_xingbie">
+          <div class="eidt_const">性别</div>
+          <div class="edit_text">
+            <div id="xingbie"></div>
+            <i class='iconfont icon-jinrujiantou'></i>
+          </div>
+        </div>
+        <div class="edit_item" id="edit_shengri">
+          <div class="eidt_const">生日</div>
+          <div class="edit_text">
+            <div id="shengri"></div>
+            <i class='iconfont icon-jinrujiantou'></i>
+          </div>
+        </div>
+        <div class="edit_item" id="edit_diqv">
+          <div class="eidt_const">地区</div>
+          <div class="edit_text">
+            <div id="diqv"></div>
+            <i class='iconfont icon-jinrujiantou'></i>
+          </div>
+        </div>
+        <div class="edit_item" id="edit_jianjie">
+          <div class="eidt_const">简介</div>
+          <div class="edit_text">
+            <div id="jianjie"></div>
+            <i class='iconfont icon-jinrujiantou'></i>
+          </div>
+        </div>
+        <div class="edit_item" id="edit_beijing">
+          <div class="eidt_const">背景图</div>
+          <div class="edit_text">
+            <img id="beijing">
+            <i class='iconfont icon-jinrujiantou'></i>
+          </div>
+        </div>
+      </div>
+      <div class="edit_save">保存</div>
+    </div>
+
+    <!-- 消息页面 -->
+    <div class="message" style="display: none;">
+      <!-- 头部 -->
+      <div class="msg_header">
+        <div class="msg_title">消息</div>
+        <div id="sendMsg">发私信</div>
+      </div>
+      <!-- 导航 -->
+      <div class="msg_nav">
+        <div class="msg_nav_btn" id="msg_lAc">
+          <div><i class='iconfont icon-yishoucang'></i></div>
+          <div>赞和收藏</div>
+        </div>
+        <div class="msg_nav_btn" id="msg_follows">
+          <div><i class='iconfont icon-tianchongxing-' style="color: #5690F3;"></i></div>
+          <div>新增关注</div>
+        </div>
+        <div class="msg_nav_btn" id="msg_comments">
+          <div><i class='iconfont icon-message' style="color: #59CE9E;"></i></div>
+          <div>评论和@</div>
+        </div>
+      </div>
+
+      <div class="recent"></div>
+
+      <!-- 底部导航 -->
+      <div class="navFoot" id="msg_navFoot">
+        <div class="navFoot_item" id="msg_home">
+          <i class='iconfont icon-home-g'></i>
+          <div class="navFoot_text">首页</div>
+        </div>
+        <div class="navFoot_item active" id="msg_msg">
+          <i class='iconfont icon-31xiaoxi'></i>
+          <div class="navFoot_text">消息</div>
+        </div>
+        <div class="navFoot_item" id="msg_own">
+          <i class='iconfont icon-geren'></i>
+          <div class="navFoot_text">个人</div>
+        </div>
+      </div>
+
+
+    </div>
+
+    <!-- 发私信页面 -->
+    <div class="letter" style="display: none;">
+      <div class="adding_header follows_header lAc_header">
+        <i class='iconfont icon-fanhui' id="letter_back"></i>
+        <div class="follows_title">发私信</div>
+      </div>
+      <div id="letter_list"></div>
+    </div>
+
+    <!-- 发消息页面 -->
+    <div class="send" style="display: none;">
+      <div class="send_wrap">
+        <div class="edit_header">
+          <i class='iconfont icon-fanhui' id="send_back"></i>
+          <div class="edit_title" id="send_title">发私信</div>
+        </div>
+        <div class="send_main"></div>
+        <div class="send_end">
+          <input type="text" id="sendInput" placeholder="请输入内容">
+          <div class="sendBtn" style="display: none;">发送</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 我收到的评论 -->
+    <div class="comMe" style="display: none;">
+      <div class="adding_header follows_header">
+        <i class='iconfont icon-fanhui' id="comMe_back"></i>
+        <div class="follows_title">收到的评论和@</div>
+      </div>
+      <div id="comMeShow"></div>
+    </div>
+  </div>
+</body>
+
+</html>

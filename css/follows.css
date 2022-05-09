@@ -1,0 +1,11 @@
+.follows_header {
+  position: sticky;
+  border-bottom: 1px solid #eae9e9;
+}
+.follows_header .follows_title {
+  position: fixed;
+  background-color: white;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, 0);
+}

@@ -1,0 +1,71 @@
+.login {
+  overflow: hidden;
+}
+.login_wrap {
+  width: 300px;
+  margin: 0 auto;
+  margin-top: 90px;
+  text-align: center;
+  height: 500px;
+  h1 {
+    font-size: 50px;
+    color: #009373;
+  }
+  //错误警告
+  .login_warn {
+    padding-left: 20px;
+    text-align: left;
+    color: red;
+  }
+  //登录输入框
+  .login_input {
+    display: block;
+    margin: 15px;
+    width: 90%;
+    height: 40px;
+    border: 1px solid rgba(128, 128, 128, 0.281);
+    border-radius: 3px;
+    padding: 5px;
+    &::placeholder {
+      font-weight: 700;
+    }
+    &:focus {
+      outline-color: #009373;
+    }
+  }
+  // 密码登录
+  .login_mima {
+    position: relative;
+    //密码框设置
+    .login_input_password {
+      &::-ms-reveal {
+        display: none;
+      }
+    }
+    .show_password_btn {
+      position: absolute;
+      top: 65px;
+      right: 25px;
+    }
+  }
+
+  //登录按钮
+  .login_submit {
+    border: none;
+    display: block;
+    height: 40px;
+    border-radius: 3px;
+    color: white;
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 30px;
+    line-height: 40px;
+    background-color: #45c99d;
+  }
+  // 注册按钮
+  .registerBtn {
+    margin-top: 20px;
+    font-size: smaller;
+    color: gray;
+  }
+}

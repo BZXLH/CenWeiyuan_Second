@@ -1,0 +1,256 @@
+.detail {
+  position: relative;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+//头像
+.datail_authorFace {
+  margin-top: 3px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: gray;
+}
+.detail_header {
+  position: fixed;
+  top: 0;
+  box-sizing: border-box;
+  width: 100%;
+  z-index: 10;
+  background-color: rgb(255, 255, 255);
+  padding: 5px 15px;
+  height: 50px;
+  line-height: 35px;
+  display: flex;
+  justify-content: space-between;
+  .detail_header_left {
+    display: flex;
+    i {
+      font-size: 20px;
+    }
+    .detail_author {
+      margin-left: 20px;
+      display: flex;
+      .detail_name {
+        margin-left: 7px;
+      }
+    }
+  }
+  .detail_header_right {
+    display: flex;
+    align-items: center;
+    .detail_follow {
+      font-size: small;
+      line-height: 27px;
+      height: 27px;
+      width: 60px;
+      text-align: center;
+      border-radius: 3px;
+      background-color: #009373;
+      color: white;
+    }
+    i {
+      font-size: 23px;
+      margin-left: 10px;
+    }
+  }
+}
+.rotation_view {
+  margin-top: 50px;
+  background-color: black;
+  overflow: hidden;
+  .rotation_swiper {
+    display: flex;
+    align-items: center;
+    transition: 0.3s;
+    .rotation_img {
+      width: 100vw;
+      height: 100%;
+    }
+  }
+}
+.rotation_btnList {
+  text-align: center;
+  line-height: 3px;
+  .rotation_btn {
+    display: inline-block;
+    width: 15px;
+    height: 3px;
+    background-color: #a5a5a5;
+  }
+  .active {
+    background-color: #009373;
+  }
+}
+.detail_title {
+  font-weight: 600;
+  font-size: 20px;
+  margin: 15px 10px;
+}
+.detail_content {
+  margin: 0 10px;
+}
+.detail_tagList {
+  margin: 5px 10px;
+  .detail_tag {
+    color: #009373;
+    font-size: 14px;
+  }
+}
+.timeAlike {
+  margin: 5px 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  .detail_time {
+    font-size: small;
+    color: gray;
+  }
+  .detail_like {
+    height: 25px;
+    font-size: small;
+    line-height: 25px;
+    padding: 0 10px;
+    border: 1px solid gray;
+    color: gray;
+    border-radius: 15px;
+  }
+}
+.detail_cut {
+  margin: 10px;
+  border: none;
+  border-top: 1px solid rgb(203, 203, 203);
+}
+.detail_write {
+  background-color: white;
+  z-index: 5;
+  position: fixed;
+  padding: 0 10px;
+  box-sizing: border-box;
+  width: 100%;
+  bottom: 0;
+  height: 6vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .detail_input {
+    width: 90%;
+    background-color: #ebebeb;
+    height: 30px;
+    border-radius: 15px;
+    padding-left: 20px;
+    &:focus {
+      background-color: #c3c3c3;
+    }
+  }
+  i {
+    margin-left: 10px;
+    font-size: 25px;
+  }
+  #detail_aix {
+    transform: translate(0, 2px);
+  }
+  #detail_com {
+    transform: translate(0, 2px);
+  }
+}
+.detail_comments {
+  overflow: hidden;
+  position: relative;
+  margin: 0 10px;
+  margin-bottom: 6vh;
+  .sumCommenys {
+    font-weight: 600;
+    color: #3a3a3a;
+    background-image: linear-gradient(#008669, #00ab86);
+    padding-left: 10px;
+    height: 25px;
+    line-height: 25px;
+  }
+  .Fcomment {
+    animation: showIn 0.3s;
+    margin-top: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgb(203, 203, 203);
+  }
+  .Fcomment_content {
+    position: relative;
+    display: flex;
+  }
+  .Scomment {
+    animation: showIn 0.3s 0.5s;
+    position: relative;
+    margin-top: 10px;
+    margin-left: 35px;
+    display: flex;
+    .comment_time {
+      display: inline-block;
+      margin-left: 5px;
+    }
+  }
+  .comment_text {
+    margin-left: 10px;
+  }
+  .comment_name {
+    font-size: small;
+    color: #00ab86;
+  }
+  .comment_content {
+    margin: 5px 0;
+  }
+  .comment_time {
+    font-size: 14px;
+    color: #a5a5a5;
+  }
+  .comment_aix {
+    position: absolute;
+    right: 0;
+    top: 0;
+    i {
+      font-size: 20px;
+    }
+  }
+  .comment_aixNum {
+    text-align: center;
+  }
+}
+//已关注
+.have {
+  border: 1px solid #009373;
+  background-color: white !important;
+  color: #008669 !important;
+}
+.remove {
+  background-color: rgb(232, 63, 63) !important;
+  color: white !important;
+}
+.detail_write_right {
+  display: flex;
+  align-items: center;
+  div {
+    margin-left: 2px;
+  }
+}
+.detail_input_sure {
+  width: 50px;
+  text-align: center;
+  height: 30px;
+  line-height: 30px;
+  margin-left: 10px;
+  color: red;
+}
+.issure {
+  color: #00ab86 !important;
+}
+.comment_clear {
+  right: -20px;
+  top: 0;
+  font-size: small;
+  color: #cbcbcb;
+}
+.icon-yishoucang {
+  color: #f30240;
+}
+.icon-yishoucang1 {
+  color: #4dd266;
+}

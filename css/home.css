@@ -1,0 +1,130 @@
+.home {
+  position: relative;
+  height: 100vh;
+  overflow-y: scroll;
+}
+.home_header {
+  height: 45px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.home_header i {
+  margin: 0 10px;
+  font-size: 23px;
+}
+.navTag {
+  height: 30px;
+  line-height: 30px;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 10px;
+}
+.navTag .active {
+  color: #009373;
+  border-bottom: 2px solid #009373;
+}
+.navFoot {
+  position: sticky;
+  bottom: -1px;
+  background-color: white;
+  height: 55px;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.navFoot .navFoot_item {
+  margin-right: 20px;
+  font-weight: 600;
+  text-align: center;
+}
+.navFoot .navFoot_item i {
+  font-size: 23px;
+  position: fixed;
+  bottom: 22px;
+}
+.navFoot .navFoot_text {
+  position: fixed;
+  bottom: 5px;
+  font-size: small;
+}
+.navFoot .active {
+  color: #009373;
+}
+@keyframes showIn {
+  from {
+    transform: translate(0, 20px);
+    opacity: 0;
+  }
+  to {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+}
+.showOut {
+  margin-top: 75px;
+  width: 100%;
+  display: flex;
+}
+.showOut .show_column {
+  width: 50%;
+  margin-left: 7px;
+}
+.showOut .show_column:last-child {
+  margin-right: 7px;
+}
+.showOut .home_show_item {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12), 0 0 6px rgba(0, 0, 0, 0.201);
+  margin: 7px 0;
+}
+.showOut .home_show_item .show_img {
+  width: 100%;
+}
+.showOut .home_show_item .show_title {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 5px;
+}
+.showOut .home_show_item .show_detail {
+  display: flex;
+  align-items: center;
+  margin: 5px;
+}
+.showOut .home_show_item .show_detail .show_face {
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+}
+.showOut .home_show_item .show_detail .show_username {
+  margin-left: 5px;
+  font-size: 15px;
+}
+.showOut .home_show_item .show_detail .show_aix {
+  display: flex;
+  position: absolute;
+  right: 5px;
+}
+.showOut .home_show_item .show_detail .show_aix span {
+  pointer-events: none;
+  font-size: small;
+  margin-left: 3px;
+}
+.showOut .home_show_item .show_detail .show_aix i {
+  pointer-events: none;
+}
+.home_header_wrap {
+  position: fixed;
+  width: 100%;
+  background-color: white;
+  z-index: 20;
+}
+.noMore {
+  margin-top: 10px;
+  text-align: center;
+  font-size: small;
+  color: gray;
+}

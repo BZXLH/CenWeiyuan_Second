@@ -1,0 +1,31 @@
+.likeAColl {
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+.lAcTop {
+  background-color: white;
+  width: 100%;
+  height: 80px;
+  position: sticky;
+  top: 0;
+  z-index: 20;
+}
+div.lAc_header {
+  border-bottom: none;
+}
+.lAc_ItemRight {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  right: 15px;
+}
+.lAc_ItemRight i {
+  font-size: 30px;
+  color: #d8d8d8;
+}
+.lAc_img {
+  width: 45px;
+  height: 45px;
+  border-radius: 5px;
+  background-color: gray;
+}

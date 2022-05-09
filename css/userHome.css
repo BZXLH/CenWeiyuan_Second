@@ -1,0 +1,93 @@
+.userHome {
+  height: 100vh;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+.faceAname {
+  display: flex;
+  margin-top: 15px;
+}
+.userHome_face {
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
+  background-color: gray;
+  margin-left: 20px;
+}
+.userHome_name {
+  font-size: large;
+  line-height: 80px;
+  margin-left: 15px;
+}
+.userHome_data {
+  display: flex;
+  margin-top: 30px;
+  color: #999999;
+}
+.userHome_data .userHome_data_tiem {
+  text-align: center;
+  margin-left: 20px;
+}
+.userHome_data #userHome_follows {
+  color: #009373;
+}
+.userHome_data #userHome_sendIfo {
+  margin-left: 90px;
+  height: 30px;
+  line-height: 30px;
+  padding: 0 10px;
+  border: 1px solid #626262;
+  border-radius: 3px;
+}
+.userHome_data #userHome_fans {
+  color: #f86a43;
+}
+.userHome_data #userHome_loveAcoll {
+  color: #e3d23d;
+}
+.userHome_nav {
+  position: sticky;
+  top: 42px;
+  z-index: 20;
+  margin-top: 20px;
+  border-bottom: 1px solid #f3f3f3;
+  background-color: white;
+  padding-top: 10px;
+  display: flex;
+  justify-content: space-around;
+}
+.userHome_nav .userHome_nav_btn {
+  font-size: large;
+  padding-bottom: 5px;
+}
+.userHome_nav .userHome_active {
+  color: #009373;
+  border-bottom: 2px solid #009373;
+}
+#userHome_art {
+  margin-top: 0;
+}
+#userHome_navFoot {
+  background-color: white;
+  position: sticky;
+}
+.userHome_header {
+  position: sticky;
+  background-color: white;
+  top: -1px;
+  z-index: 20;
+}
+.userHome_follow {
+  line-height: 30px;
+  height: 30px;
+  padding: 0 10px;
+  text-align: center;
+  border-radius: 3px;
+  background-color: #009373;
+  color: white;
+  border: none !important;
+}
+.canSend {
+  color: #009373;
+  border-color: #009373 !important;
+}

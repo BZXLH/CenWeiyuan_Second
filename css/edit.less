@@ -1,0 +1,176 @@
+.edit {
+  position: relative;
+  height: 100vh;
+}
+.edit_header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 45px;
+  i {
+    font-size: 20px;
+    margin-left: 15px;
+  }
+  .edit_title {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0);
+  }
+}
+.edit_img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: gray;
+  margin: 20px 50% 10px 50%;
+  transform: translate(-50%, 0);
+}
+.edit_item {
+  height: 50px;
+  border-top: 1px solid #eeeeee;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 15px;
+  &:last-child {
+    height: 80px;
+    border-bottom: 1px solid #eeeeee;
+  }
+  i {
+    font-size: 25px;
+  }
+}
+.edit_text {
+  display: flex;
+  align-items: center;
+}
+.eidt_const {
+  font-size: large;
+  color: #787777;
+}
+.edit_pop {
+  position: absolute;
+  z-index: 10;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.466);
+}
+.edit_popIn {
+  position: absolute;
+  top: 40%;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 300px;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: white;
+  .edit_input_wrap {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    margin: 10px 0;
+    .sel_wrap {
+      width: 80%;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+    }
+    .edit_sel {
+      width: 50px;
+      font-size: large;
+      text-align: center;
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+  .edit_input {
+    width: 80%;
+    margin-left: 5%;
+    height: 30px;
+    border-bottom: 1px solid #787777;
+    font-size: large;
+    padding: 10px 10px 0 10px;
+    &::placeholder {
+      color: #d3d3d3;
+    }
+  }
+  #editing {
+    margin-top: 10px;
+    font-size: large;
+    color: #787777;
+    text-align: center;
+  }
+  .edit_sure {
+    display: flex;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    font-size: large;
+    div {
+      width: 50%;
+      border: 1px solid #999999;
+    }
+    #edit_no {
+      background-color: #009373;
+    }
+    #edit_yes {
+      background-color: #35c1a3;
+    }
+  }
+  .edit_photo {
+    .photo_btn {
+      order: 1;
+      margin: 0 5px 5px 0;
+      width: 80px;
+      height: 80px;
+      background-color: #f5f5f5;
+      line-height: 80px;
+      text-align: center;
+      border-radius: 4px;
+      i {
+        font-size: 30px;
+        color: #999999;
+      }
+    }
+  }
+}
+
+.edit_photo_btn {
+  display: block;
+  margin: 0 5px 5px 0;
+  width: 80px;
+  height: 80px;
+  background-color: #f5f5f5;
+  line-height: 80px;
+  text-align: center;
+  border-radius: 4px;
+  i {
+    font-size: 30px;
+    color: #999999;
+  }
+}
+.editImgSure {
+  margin: 0 5px 5px 0;
+  width: 80px;
+  height: 80px;
+  border-radius: 4px;
+}
+#beijing {
+  margin: 0 5px 5px 0;
+  width: 50px;
+  height: 50px;
+  border-radius: 4px;
+}
+.edit_save {
+  transition: 0.5s;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  color: white;
+  background-color: #009373;
+}

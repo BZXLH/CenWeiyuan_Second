@@ -1,0 +1,62 @@
+.login {
+  overflow: hidden;
+}
+.login_wrap {
+  width: 300px;
+  margin: 0 auto;
+  margin-top: 90px;
+  text-align: center;
+  height: 500px;
+}
+.login_wrap h1 {
+  font-size: 50px;
+  color: #009373;
+}
+.login_wrap .login_warn {
+  padding-left: 20px;
+  text-align: left;
+  color: red;
+}
+.login_wrap .login_input {
+  display: block;
+  margin: 15px;
+  width: 90%;
+  height: 40px;
+  border: 1px solid rgba(128, 128, 128, 0.281);
+  border-radius: 3px;
+  padding: 5px;
+}
+.login_wrap .login_input::placeholder {
+  font-weight: 700;
+}
+.login_wrap .login_input:focus {
+  outline-color: #009373;
+}
+.login_wrap .login_mima {
+  position: relative;
+}
+.login_wrap .login_mima .login_input_password::-ms-reveal {
+  display: none;
+}
+.login_wrap .login_mima .show_password_btn {
+  position: absolute;
+  top: 65px;
+  right: 25px;
+}
+.login_wrap .login_submit {
+  border: none;
+  display: block;
+  height: 40px;
+  border-radius: 3px;
+  color: white;
+  width: 90%;
+  margin: 0 auto;
+  margin-top: 30px;
+  line-height: 40px;
+  background-color: #45c99d;
+}
+.login_wrap .registerBtn {
+  margin-top: 20px;
+  font-size: smaller;
+  color: gray;
+}

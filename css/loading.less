@@ -1,0 +1,55 @@
+.loading {
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.119);
+  z-index: 999;
+  .loading_text {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: large;
+    font-weight: 600;
+    color: #2fbfa0;
+    span {
+      display: inline-block;
+      &:nth-child(1) {
+        animation: jump 0.5s infinite both;
+      }
+      &:nth-child(2) {
+        animation: jump 0.5s 0.05s infinite both;
+      }
+      &:nth-child(3) {
+        animation: jump 0.5s 0.1s infinite both;
+      }
+      &:nth-child(4) {
+        animation: jump 0.5s 0.15s infinite both;
+      }
+      &:nth-child(5) {
+        animation: jump 0.5s 0.2s infinite both;
+      }
+      &:nth-child(6) {
+        animation: jump 0.5s 0.25s infinite both;
+      }
+    }
+  }
+}
+@keyframes jump {
+  0% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(0, -5px);
+  }
+  50% {
+    transform: translate(0, 0);
+  }
+  75% {
+    transform: translate(0, 5px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}

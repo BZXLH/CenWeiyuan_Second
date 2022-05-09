@@ -1,0 +1,143 @@
+.adding {
+  position: relative;
+  overflow: hidden;
+  height: 100vh;
+}
+.adding_header {
+  height: 45px;
+  line-height: 45px;
+}
+.adding_header i {
+  margin-left: 15px;
+  font-size: 20px;
+}
+.add_photo {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: left;
+  padding: 10px;
+}
+.add_photo .add_btn {
+  order: 1;
+  margin: 0 5px 5px 0;
+  width: 80px;
+  height: 80px;
+  background-color: #f5f5f5;
+  line-height: 80px;
+  text-align: center;
+  border-radius: 4px;
+}
+.add_photo .add_btn i {
+  font-size: 30px;
+  color: #999999;
+}
+.add_photo img {
+  margin: 0 5px 5px 0;
+  width: 80px;
+  height: 80px;
+  border-radius: 4px;
+}
+.add_title {
+  display: block;
+  margin: auto;
+  margin-top: 10px;
+  padding-bottom: 10px;
+  width: 95%;
+  border: none;
+  border-bottom: 1px solid #d5d5d5;
+  height: 30px;
+  font-size: large;
+}
+.add_title::placeholder {
+  color: #cccccc;
+}
+.add_content {
+  display: block;
+  height: 150px;
+  resize: none;
+  width: 95%;
+  border: none;
+  font-size: 16px;
+  margin: auto;
+  margin-top: 10px;
+}
+.add_content::placeholder {
+  color: #cccccc;
+}
+.add_tag {
+  display: flex;
+  width: 95%;
+  margin: auto;
+}
+.add_tag .add_tag_item {
+  font-size: small;
+  margin: 0 10px;
+  border: 1px solid #e4e4e4;
+  border-radius: 3px;
+  padding: 5px 10px;
+}
+.sub_btn {
+  position: fixed;
+  bottom: 10px;
+  left: 0;
+  right: 0;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  width: 95%;
+  margin: auto;
+  background-color: #009373;
+  color: white;
+  border-radius: 40px;
+}
+.readyTag {
+  padding: 10px 0;
+  border-bottom: 1px solid #d5d5d5;
+  width: 95%;
+  padding-left: 10px;
+  margin: auto;
+  font-weight: 600;
+  color: #009373;
+}
+.pop {
+  position: absolute;
+  z-index: 10;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.458);
+}
+.popIn {
+  position: absolute;
+  top: 35%;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 300px;
+  height: 100px;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: white;
+}
+.popIn .tagText {
+  height: 50px;
+  font-size: large;
+  padding: 10px;
+}
+.popIn .tagText::placeholder {
+  color: #d3d3d3;
+}
+.addTag_btn {
+  display: flex;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+.addTag_btn div {
+  width: 50%;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  font-weight: 600;
+  color: #009373;
+  outline: 1px solid #e0e0e0;
+}

@@ -1,0 +1,22 @@
+body {
+  font-family: "Trebuchet MS";
+  margin: 0;
+  overflow: hidden;
+  position: relative;
+}
+
+ul {
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+input, textarea {
+  border: none;
+}
+
+input:focus, textarea:focus {
+  outline: none;
+}

@@ -1,0 +1,53 @@
+.msg {
+  position: relative;
+  height: 100vh;
+}
+.msg_header {
+  background-color: white;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  height: 45px;
+}
+.msg_header i {
+  margin-left: 15px;
+}
+.msg_header .msg_title {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+#sendMsg {
+  position: absolute;
+  right: 15px;
+  color: #009373;
+}
+.msg_nav {
+  margin-top: 45px;
+  display: flex;
+  padding: 20px 0;
+  align-items: center;
+  justify-content: space-around;
+}
+.msg_nav .msg_nav_btn {
+  text-align: center;
+  font-size: 15px;
+  color: #999ea6;
+}
+.msg_nav .msg_nav_btn i {
+  font-size: 25px;
+}
+#msg_navFoot {
+  position: sticky;
+  bottom: 0;
+}
+.msgIcon {
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+  font-size: 25px;
+  right: 15px;
+  color: #d8d9df;
+}
